@@ -5,7 +5,10 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import FriendObject from '../../../components/FriendObject';
 
-const backend_url = process.env.NEXT_PUBLIC_BACKEND_URL;
+// const backend_url = process.env.NEXT_PUBLIC_BACKEND_URL
+// change to heroku server after dev testing
+const backend_url = "http://127.0.0.1:5000/"
+
 
 interface Connection {
   name: string;

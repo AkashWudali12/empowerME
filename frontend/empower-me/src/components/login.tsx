@@ -7,7 +7,9 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 
-const backend_url = process.env.NEXT_PUBLIC_BACKEND_URL
+// const backend_url = process.env.NEXT_PUBLIC_BACKEND_URL
+// change to heroku server after dev testing
+const backend_url = "http://127.0.0.1:5000/"
 
 console.log("backend url:", backend_url)
 

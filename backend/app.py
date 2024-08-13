@@ -9,6 +9,8 @@ from pinecone import Pinecone
 from pprint import pprint
 from empowerMeDB_sql_commands import COMMANDS
 
+# current on heroku ps:scale web=0 --app empower-me, to turn on run heroku ps:scale web=1 --app empower-me   
+
 app = Flask(__name__)
 
 # Correct CORS setup
