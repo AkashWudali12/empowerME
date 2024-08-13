@@ -21,7 +21,8 @@ export function ConnectionsDirectory() {
   const router = useRouter();
   const [patientId, setPatientId] = useState("");
   const [currentConnections, setCurrentConnections] = useState<string[]>([]);
-  const [connectionsTsx, changeConnectionsTsx] = useState<JSX.Element>(<h1>""</h1>);
+  const [connectionsTsx, changeConnectionsTsx] = useState<JSX.Element>(<h1>{""}</h1>
+  );
 
   const logout = () => {
     localStorage.setItem("sessionToken", "");

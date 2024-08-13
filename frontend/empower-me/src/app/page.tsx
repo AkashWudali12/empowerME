@@ -1,6 +1,6 @@
 import { Directory } from "@/components/directory";
 
-export default function () {
+export default function HomePage() {
     return (
         <Directory></Directory>
     )

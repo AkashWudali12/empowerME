@@ -24,8 +24,10 @@ export function ConnectionsDirectory() {
   const [patientId, setPatientId] = useState("");
   const [topMatches, setTopMatches] = useState<string[]>([]);
   const [currentRequests, setCurrentRequests] = useState<string[]>([]);
-  const [connectionsTsx, changeConnectionsTsx] = useState<JSX.Element>(<h1>""</h1>);
-  const [requestsTsx, changeRequestsTsx] = useState<JSX.Element>(<h1>""</h1>);
+  const [connectionsTsx, changeConnectionsTsx] = useState<JSX.Element>(<h1>{""}</h1>
+  );
+  const [requestsTsx, changeRequestsTsx] = useState<JSX.Element>(<h1>{""}</h1>
+  );
   const [updateFlag, setUpdateFlag] = useState(false);  // State to trigger re-renders
 
   console.log("updateFlag:", updateFlag)
