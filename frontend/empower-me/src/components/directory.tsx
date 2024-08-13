@@ -29,7 +29,7 @@ export function Directory() {
           <div className="space-y-4 text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">EmpowerME</h2>
             <p className="max-w-[700px] text-muted-foreground md:text-xl mx-auto">
-              slogan.
+              Empowering patients by connecting them with others who share similar health journeys.
             </p>
           </div>
           <div className={boxesClassName}>
