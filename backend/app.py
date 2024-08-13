@@ -12,8 +12,8 @@ from empowerMeDB_sql_commands import COMMANDS
 app = Flask(__name__)
 
 # Correct CORS setup
-CORS(app)
-# CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}}, supports_credentials=True)
+# CORS(app)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}}, supports_credentials=True)
 
 
 load_dotenv()
@@ -30,9 +30,6 @@ r = redis.Redis(
 
 sql_executer = COMMANDS()
 
-with open("parsedEhrData/patientsInfo.json", "r") as file:
-    patientsData = json.load(file)
-
 def generate_session_token():
     return secrets.token_hex(32)
 
@@ -44,21 +41,6 @@ def get_session_data(session_token):
     if value:
         return value.decode('utf-8')
     return ""
-
-# @app.after_request
-# def after_request(response):
-#     # Add CORS headers
-#     response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
-#     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-#     response.headers.add('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
-#     # Allow credentials to be passed (important for cookies or authentication)
-#     response.headers.add('Access-Control-Allow-Credentials', 'true')
-#     return response
-
-# @app.before_request
-# def log_request_info():
-#     print(f"Headers: {request.headers}")
-#     print(f"Body: {request.get_data()}")
 
 @app.route('/')
 def home():
