@@ -1,0 +1,2 @@
+venv/.*pyc filter=lfs diff=lfs merge=lfs -text
+venv/lib/*.dylib filter=lfs diff=lfs merge=lfs -text

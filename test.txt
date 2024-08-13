@@ -1,0 +1,45 @@
+{
+      "fullUrl": "urn:uuid:d2ed8440-2b5b-4706-b367-86623c430201",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "d2ed8440-2b5b-4706-b367-86623c430201",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "162673000",
+                "display": "General examination of patient (procedure)"
+              }
+            ],
+            "text": "General examination of patient (procedure)"
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:e38d06d2-d70f-4083-ac71-fc3bae5b0e40"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "urn:uuid:0000016d-10a6-0f09-0000-00000000a2f8"
+            }
+          }
+        ],
+        "period": {
+          "start": "1931-03-18T19:18:08-05:00",
+          "end": "1931-03-18T19:48:08-05:00"
+        },
+        "serviceProvider": {
+          "reference": "urn:uuid:c2195ac0-13c5-3057-ab7b-7fdaf0ac0880"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
