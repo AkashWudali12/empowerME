@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const backend_url = process.env.NEXT_PUBLIC_BACKEND_URL
+
 interface ConnectionRequestProps {
   name: string;
   phone: string;
@@ -13,7 +15,7 @@ const ConnectionRequest: React.FC<ConnectionRequestProps> = ({ name, phone, imag
   const [status, setStatus] = useState<'pending' | 'accepted' | 'declined'>('pending');
 
   const handleAccept = async () => {
-    const response = await fetch("http://127.0.0.1:5000/handle_connection_request", {
+    const response = await fetch(backend_url + "handle_connection_request", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "status":"accept", "sender_id":clickerId, "receiver_id":id})
@@ -26,7 +28,7 @@ const ConnectionRequest: React.FC<ConnectionRequestProps> = ({ name, phone, imag
   };
 
   const handleDecline = async () => {
-    const response = await fetch("http://127.0.0.1:5000/handle_connection_request", {
+    const response = await fetch(backend_url + "handle_connection_request", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "status":"decline", "sender_id":clickerId, "receiver_id":id})

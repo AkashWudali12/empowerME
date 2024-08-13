@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import FriendObject from '../../../components/FriendObject';
 
+const backend_url = process.env.NEXT_PUBLIC_BACKEND_URL
+
 
 interface Connection {
   name: string;
@@ -52,7 +54,7 @@ export function ConnectionsDirectory() {
   }, [router, patientId, currentConnections]);
 
   const fetchData = async (token: string | null) => {
-    const response = await fetch("http://127.0.0.1:5000/check_session", {
+    const response = await fetch(backend_url + "check_session", {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "sessionToken": token })
@@ -67,7 +69,7 @@ export function ConnectionsDirectory() {
   };
 
   const addUserToSQL = async (id: string) => {
-    const response = await fetch("http://127.0.0.1:5000/add_user_to_sql", {
+    const response = await fetch(backend_url + "add_user_to_sql", {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "id": id })
@@ -80,7 +82,7 @@ export function ConnectionsDirectory() {
   };
 
   const getConnections = async (id: string, columnName: string) => {
-    const friendRequestUrl = "http://127.0.0.1:5000/get_ids_from_column";
+    const friendRequestUrl = backend_url + "get_ids_from_column";
     const response = await fetch(friendRequestUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
@@ -96,8 +98,7 @@ export function ConnectionsDirectory() {
   };
 
   const getUserData = async (idLst: string[]) => {
-    const patientDataUrl = "get_user_data";
-    const response = await fetch("http://127.0.0.1:5000/" + patientDataUrl, {
+    const response = await fetch(backend_url + "get_user_data", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ "idLst":idLst, "namespace":"patientsInfo" })

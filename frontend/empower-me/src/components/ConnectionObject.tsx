@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const backend_url = process.env.NEXT_PUBLIC_BACKEND_URL
+
 interface ConnectionObjectProps {
   name: string;
   phone: string;
@@ -13,7 +15,7 @@ const ConnectionObject: React.FC<ConnectionObjectProps> = ({ name, phone, imageU
   const [buttonStyle, setButtonStyle] = useState("bg-blue-500 hover:bg-blue-600 text-white");
 
   const sendConnectionRequest = async () => {
-    const response = await fetch("http://127.0.0.1:5000/send_connection_in_sql", {
+    const response = await fetch(backend_url + "send_connection_in_sql", {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "sender_id": clickerId, "receiver_id": id })

@@ -7,6 +7,8 @@ import ConnectionRequest from './ConnectionRequest';
 import { ChatBox } from './ChatBox';
 import Link from 'next/link';
 
+const backend_url = process.env.NEXT_PUBLIC_BACKEND_URL
+
 
 interface Connection {
   name: string;
@@ -72,7 +74,7 @@ export function ConnectionsDirectory() {
   };
 
   const fetchData = async (token: string | null) => {
-    const response = await fetch("http://127.0.0.1:5000/check_session", {
+    const response = await fetch(backend_url + "check_session", {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "sessionToken": token })
@@ -87,7 +89,7 @@ export function ConnectionsDirectory() {
   };
 
   const addUserToSQL = async (id: string) => {
-    const response = await fetch("http://127.0.0.1:5000/add_user_to_sql", {
+    const response = await fetch(backend_url + "add_user_to_sql", {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ "id": id })
@@ -100,7 +102,7 @@ export function ConnectionsDirectory() {
   };
 
   const getFriendRequests = async (id: string, columnName: string) => {
-    const friendRequestUrl = "http://127.0.0.1:5000/get_ids_from_column";
+    const friendRequestUrl = backend_url + "get_ids_from_column";
     const response = await fetch(friendRequestUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
@@ -115,7 +117,7 @@ export function ConnectionsDirectory() {
 
   const getUserData = async (idLst: string[]) => {
     const patientDataUrl = "get_user_data";
-    const response = await fetch("http://127.0.0.1:5000/" + patientDataUrl, {
+    const response = await fetch(backend_url + patientDataUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ "idLst":idLst, "namespace":"patientsInfo" })
@@ -132,9 +134,9 @@ export function ConnectionsDirectory() {
     var url: string = "";
     const payload = {"query":q, "k":k, "namespace":"patientsInfo"};
     if (typeof q === "string") {
-      url = "http://127.0.0.1:5000/get_matches_from_id";
+      url = backend_url + "get_matches_from_id";
     } else {
-      url = "http://127.0.0.1:5000/get_matches_from_vector";
+      url = backend_url + "get_matches_from_vector";
     }
     const response = await fetch(url, {
       method: 'POST',

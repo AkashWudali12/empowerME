@@ -152,7 +152,7 @@ def addUserToSQL():
             return jsonify({"status":"success"}), 200
     except Exception as e:
         print(e)
-        return jsonify({"status":"failure with error " + e}), 400
+        return jsonify({"status":"failure with error"}), 400
 
 @app.route("/send_connection_in_sql", methods=['POST'])
 def sendConnection():
@@ -167,7 +167,7 @@ def sendConnection():
         return jsonify({"status":"success"}), 200
     except Exception as e:
         print(e)
-        return jsonify({"status":"failure with error " + e}), 400
+        return jsonify({"status":"failure with error"}), 400
 
 @app.route("/handle_connection_request", methods=['POST'])
 def handleRequest():
@@ -182,7 +182,7 @@ def handleRequest():
         return jsonify({"status":"success"}), 200
     except Exception as e:
         print(e)
-        return jsonify({"status":"failure with error " + e}), 400
+        return jsonify({"status":"failure with error"}), 400
 
 @app.route("/get_ids_from_column", methods=['POST'])
 def getIdsFromCol():
@@ -196,7 +196,7 @@ def getIdsFromCol():
         return jsonify({"ids":toRet}), 200
     except Exception as e:
         print(e)
-        return jsonify({"status":"failure with error " + e}), 400
+        return jsonify({"status":"failure with error"}), 400
 
 
 
