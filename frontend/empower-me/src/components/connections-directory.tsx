@@ -56,15 +56,15 @@ export function ConnectionsDirectory() {
         if (topMatches.length === 0) {
           getTopMatches(patientId, 10);
         }
+        if (topMatches.length > 0) {
+          console.log("adding connections with matches " + topMatches);
+          setConnections(topMatches);
+        }
         getFriendRequests(patientId, "requests");
-      }
-      if (topMatches.length > 0) {
-        console.log("adding connections with matches " + topMatches);
-        setConnections(topMatches);
-      }
-      if (currentRequests.length > 0) {
-        console.log("adding friend requests from " + currentRequests);
-        setRequests(currentRequests);
+        if (currentRequests.length > 0) {
+          console.log("adding friend requests from " + currentRequests);
+          setRequests(currentRequests);
+        }
       }
     }
   }, [router, patientId, topMatches, updateFlag]);  // Re-run effect when updateFlag changes
@@ -112,6 +112,9 @@ export function ConnectionsDirectory() {
       const data = await response.json();
       console.log("curr requests methods:", data);
       setCurrentRequests(data["ids"]);
+    }
+    else {
+      console.log("friends data failed")
     }
   };
 

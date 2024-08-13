@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # Correct CORS setup
 # CORS(app)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 
 load_dotenv()
