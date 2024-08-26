@@ -1,2 +1,10 @@
-### Download syntheticmedicare10k dataset and run the parsedData notebook, this will get you the string that can be embedded for each patient, doctor and hospital in the Ehr data
-### Could not add these files to the repo b/c of LFS problems. 
+## EmpowerMe connects patients with similar challenges, enabling them to share experiences, offer support, and face their journeys together, fostering a community of mutual understanding and strength.
+
+# Here’s a video demonstration of our project:
+
+[Watch this video on YouTube](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+or
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
